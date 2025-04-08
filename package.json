@@ -1,0 +1,16 @@
+{
+  "name": "mate-react-advanced-server",
+  "version": "1.0.0",
+  "description": "Local Server for Shopping List App, educational purposes only.",
+  "main": "main.js",
+  "scripts": {
+    "start": "node ./main.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^2.2.0",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2"
+  }
+}

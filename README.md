@@ -1,2 +1,2 @@
 # mate-react-advanced-server
-Local Server for Shopping List App
+Local NodeJS Server for Shopping List App
