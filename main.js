@@ -1,15 +1,20 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const jwt = require('jsonwebtoken');
+const cors = require('cors')
+const swaggerUi = require('swagger-ui-express');
+const fs = require('fs');
+const path = require('path');
 const app = express();
 const PORT = 3000;
 
+app.use(cors());
 app.use(bodyParser.json());
 
 const SECRET_KEY = 'your_secret_key';
 const users = [
   { id: 1, username: 'admin', password: 'password' },
-  { id: 2, username: 'user1', password: '1234' }
+  { id: 2, username: 'user1', password: '123456' }
 ];
 
 let shoppingLists = [];
@@ -27,6 +32,12 @@ function authenticateToken(req, res, next) {
     next();
   });
 }
+
+const swaggerDocument = JSON.parse(
+  fs.readFileSync(path.join(__dirname, 'openapi.json'), 'utf8')
+);
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swaggerDocument));
 
 // Authenticate and get JWT token
 app.post('/api/v1/authenticate', (req, res) => {
