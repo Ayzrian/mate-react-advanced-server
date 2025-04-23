@@ -16,7 +16,22 @@
         "post": {
           "summary": "Authenticate",
           "parameters": [],
-          "responses": {},
+          "responses": {
+            "200": {
+                    "content": {
+                    "application/json": {
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                        "token": {
+                            "type": "string"
+                        }
+                        }
+                    }
+                    }
+                }
+            }
+          },
           "requestBody": {
             "content": {
               "application/json": {
@@ -41,22 +56,58 @@
         "get": {
           "summary": "Shopping Lists",
           "parameters": [],
-          "responses": {}
+          "responses": {
+            "200": {
+                "content": {
+                    "application/json": {
+                    "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "number"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+          }
         },
         "post": {
           "summary": "Shopping Lists",
           "parameters": [],
-          "responses": {},
+          "responses": {
+                "200": {
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
+                    }
+                }
+            },
           "requestBody": {
             "content": {
               "application/json": {
                 "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "id": {
+                            "type": "number"
+                        },
+                        "name": {
+                            "type": "string"
+                        }
                     }
-                  }
                 }
               }
             }
@@ -78,26 +129,64 @@
         "get": {
           "summary": "Shopping List Items",
           "parameters": [],
-          "responses": {},
-          "requestBody": {
-            "content": {
-              "application/json": {
-                "schema": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
+          "responses": {
+            "200": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                                "type": "object",
+                                "properties": {
+                                    "id": {
+                                        "type": "integer"
+                                    },
+                                    "name": {
+                                        "type": "string"
+                                    },
+                                    "quantity": {
+                                        "type": "integer"
+                                    },
+                                    "mustHave": {
+                                        "type": "boolean"
+                                    }
+                                }
+                            }
+                        }
                     }
-                  }
                 }
-              }
             }
-          }
+          },
+          "requestBody": {}
         },
         "post": {
           "summary": "Shopping List Items",
           "parameters": [],
-          "responses": {},
+          "responses": {
+            "200": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "type": "integer"
+                            },
+                            "mustHave": {
+                                "type": "boolean"
+                            }
+                        }
+                        }
+                    }
+                }
+            }
+          },
           "requestBody": {
             "content": {
               "application/json": {
@@ -144,7 +233,31 @@
         "put": {
           "summary": "Shopping List Items",
           "parameters": [],
-          "responses": {},
+          "responses": {
+            "200": {
+                "content": {
+                    "application/json": {
+                        "schema": {
+                        "type": "object",
+                        "properties": {
+                            "id": {
+                                "type": "integer"
+                            },
+                            "name": {
+                                "type": "string"
+                            },
+                            "quantity": {
+                                "type": "integer"
+                            },
+                            "mustHave": {
+                                "type": "boolean"
+                            }
+                        }
+                        }
+                    }
+                }
+            }
+          },
           "requestBody": {
             "content": {
               "application/json": {

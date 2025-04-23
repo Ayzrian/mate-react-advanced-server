@@ -59,7 +59,7 @@ app.post('/api/v1/shopping-lists', authenticateToken, (req, res) => {
     items: []
   };
   shoppingLists.push(newList);
-  res.status(201).json(newList);
+  res.status(201).json({id: newList.id, name: newList.name });
 });
 
 // Get all shopping lists for the authenticated user
